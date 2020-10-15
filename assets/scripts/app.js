@@ -9,7 +9,9 @@
 const authEvents = require('./authentication/events')
 
 $(() => {
-	//event listeners for the authentication process
+	//function to reset the forms back to the log in screen
+	resetForms()
+	//event listeners for the various form buttons
 	$('#signUpForm').on('submit', authEvents.onSignUp)
 	$('#signInForm').on('submit', authEvents.onSignIn)
 	$('#changePasswordForm').on('submit', authEvents.onChangePassword)

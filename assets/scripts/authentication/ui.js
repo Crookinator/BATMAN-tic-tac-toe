@@ -35,14 +35,18 @@ const onChangePasswordFailure = function () {
 const onSignOutSuccess = function () {
   $('#userAlert').text('Sign out successful. See you next time!')
   store.user = null
-  $('#change-password-form').hide()
-  $('#signOutForm').hide()
-  $('#signUpForm').hide()
-  $('#signInForm').show()
+	resetForms()
 }
 
 const onSignOutFailure = function () {
   $('#userAlert').text('Sign out failed')
+}
+
+const resetForms = () => {
+	$('#signOutForm').hide()
+	$('#changePasswordForm').hide()
+	$('#signUpForm').hide()
+	$('#signInForm').show()
 }
 
 module.exports = {
@@ -53,5 +57,6 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+	resetForms
 }
