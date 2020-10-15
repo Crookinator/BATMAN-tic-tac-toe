@@ -9,6 +9,7 @@
 const authEvents = require('./authentication/events')
 
 $(() => {
+	//event listeners for the authentication process
 	$('#signUpForm').on('submit', authEvents.onSignUp)
 	$('#signInForm').on('submit', authEvents.onSignIn)
 	$('#changePasswordForm').on('submit', authEvents.onChangePassword)

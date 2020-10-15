@@ -3,27 +3,68 @@ const getFormFields = require('./../../../lib/get-form-fields')
 const ui = require('./ui')
 const api = require('./api')
 
+// event handler for the sign up event listener
 const onSignUp = function (event) {
 		event.preventDefault()
-		console.log('Sign up firing')
+		// console.log('Sign up firing')
+		// capture the form from the event
+		const form = event.target
+		// use getFormFields to extract the data from the form
+		const data = getFormFields(form)
+		console.log(JSON.stringify(data))
+
+		// send data to the api
+		api.signUp(data)
+			// handle successful response
+			.then(ui.signUpSuccess)
+			// handle failed response
+			.catch(ui.signUpFailure)
 }
 
+// handler for the sign in listener
 const onSignIn = function (event) {
-	event.preventDefault()
-	console.log('sign in firing')
+  event.preventDefault()
+
+  // get the form from the event
+  const form = event.target
+  // get the data from the form
+  const data = getFormFields(form)
+  // send the data to the api
+  api.signIn(data)
+    // handle successful response
+    .then(ui.signInSuccess)
+    // handle failed response
+    .catch(ui.signInFailure)
 }
 
-const onSignOut = function (event) {
-	event.preventDefault()
-	console.log('sign out firing')
-}
-
+// handler for the change password listener
 const onChangePassword = function (event) {
-	event.preventDefault()
-	console.log('change password firing')
+  event.preventDefault()
+  // get the form from the event
+  const form = event.target
+  // use getFormFields to get data from the form
+  const data = getFormFields(form)
+  // send data in AJAX request to the API
+  api.changePassword(data)
+    // handle successul response
+    .then(ui.onChangePasswordSuccess)
+    // handle failed response
+    .catch(ui.onChangePasswordFailure)
+}
+
+// handler for the sign out listener
+const onSignOut = function (event) {
+  event.preventDefault()
+  // send data in AJAX request to the API
+  api.signOut()
+    // handle successul response
+    .then(ui.onSignOutSuccess)
+    // handle failed response
+    .catch(ui.onSignOutFailure)
 }
 
 
+// exporting each handler so that app.js will be able to call these functions
 module.exports = {
 	onSignUp,
 	onSignIn,
