@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>
+1	<head>
 		<title>
 			Hero Vs Villain
 		</title>
@@ -20,26 +20,26 @@
 		<section>
 			<form id="signUpForm" name="signUpForm">
 				<fieldset>
-					<legend>Sign up!</legend> <label for="signUpEmail">Email</label> <input id="signUpEmail" type="email" name="credentials[email]" placeholder"Email""> <label for="sign-up-password">Password</label> <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password"> <label for="sign-up-password_confirmation">Password Confirmation</label> <input id="sign-up-password_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"> <input type="submit" value="Sign up!">
+					<legend>Sign up!</legend> <label for="signUpEmail">Email</label> <input required id="signUpEmail" type="email" name="credentials[email]" placeholder"Email""> <label for="signUpPassword">Password</label> <input required id="signUpPassword" type="password" name="credentials[password]" placeholder="Password"> <label for="signUpPassword_confirmation">Password Confirmation</label> <input required id="signUpPassword_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"> <input type="submit" value="Sign up!">
 				</fieldset>
 			</form>
 		</section>
 		<section>
-			<form id="sign-in-form" name="sign-in-form">
+			<form id="signInForm" name="signInForm">
 				<fieldset>
-					<legend>Sign in!</legend> <label for="sign-in-email">Email</label> <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email"> <label for="sign-in-password">Password</label> <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password"> <input type="submit" value="Sign in!">
+					<legend>Sign in!</legend> <label for="signInEmail">Email</label> <input required id="signInEmail" type="email" name="credentials[email]" placeholder="Email"> <label for="signInPassword">Password</label> <input required id="signInPassword" type="password" name="credentials[password]" placeholder="Password"> <input type="submit" value="Sign in!">
 				</fieldset>
 			</form>
 		</section>
 		<section>
-			<form id="change-password-form" name="change-password-form">
+			<form id="changePasswordForm" name="changePasswordForm">
 				<fieldset>
-					<legend>Change Password!</legend> <input type="password" name="passwords[old]" placeholder="Old Password"> <input type="password" name="passwords[new]" placeholder="New Password"> <input type="submit" value="Change Password!">
+					<legend>Change Password!</legend> <input required type="password" name="passwords[old]" placeholder="Old Password"> <input required type="password" name="passwords[new]" placeholder="New Password"> <input type="submit" value="Change Password!">
 				</fieldset>
 			</form>
 		</section>
 		<section>
-			<form id="sign-out-form" class="border" name="sign-out-form">
+			<form id="signOutForm" class="border" name="signOutForm">
 				<fieldset>
 					<legend>Sign Out!</legend> <input type="submit" value="Sign out!">
 				</fieldset>
