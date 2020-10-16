@@ -4,6 +4,7 @@ const store = require('./../store')
 
 const signUpSuccess = function(response) {
   $("#userAlert").text('Thanks ' + response.user.email + ' Your sign up was successful! Please sign in to play.')
+	$('#signInForm').show()
 }
 
 const signUpFailure = function(error) {
@@ -18,6 +19,8 @@ const signInSuccess = function(response) {
   $('#signOutForm').show()
   $('#signUpForm').hide()
   $('#signInForm').hide()
+	$('#playGame').show()
+	
 }
 
 const signInFailure = function() {
@@ -43,11 +46,28 @@ const onSignOutFailure = function () {
 }
 
 const resetForms = () => {
+	$('#userAlert').text('')
+	$('#playGame').hide()
 	$('#signOutForm').hide()
+	$('#showSignIn').hide()
 	$('#changePasswordForm').hide()
 	$('#signUpForm').hide()
 	$('#signInForm').show()
 }
+
+const onShowSignUp = () => {
+	$('#userAlert').text('Please sign up below.')
+	$('#showSignUp').hide()
+	$('#playGame').hide()
+	$('#signOutForm').hide()
+	$('#changePasswordForm').hide()
+	$('#signUpForm').show()
+	$('#signInForm').hide()
+	$('#showSignIn').show()
+	
+
+}
+
 
 module.exports = {
   signUpSuccess,
@@ -55,6 +75,7 @@ module.exports = {
   signInSuccess,
   signInFailure,
   onChangePasswordSuccess,
+	onShowSignUp,
   onChangePasswordFailure,
   onSignOutSuccess,
   onSignOutFailure,
