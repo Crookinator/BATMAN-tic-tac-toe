@@ -15,7 +15,8 @@ const signInSuccess = function(response) {
   $("#userAlert").text('Sign in Successful! Click "Play"!')
   // save the user in the api response to the store object
   store.user = response.user
-  $('#changePasswordForm').show()
+  $('#showSignUp').hide()
+	$('#changePasswordForm').show()
   $('#signOutForm').show()
   $('#signUpForm').hide()
   $('#signInForm').hide()
@@ -47,6 +48,7 @@ const onSignOutFailure = function () {
 
 const resetForms = () => {
 	$('#userAlert').text('')
+	$('#gameBoard').hide()
 	$('#playGame').hide()
 	$('#signOutForm').hide()
 	$('#showSignIn').hide()
