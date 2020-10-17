@@ -1,6 +1,7 @@
 'Use Strict'
 
 const inGameUi = () => {
+	$('#userAlert').text('New Game Started!')
 	$('#gameBoard').show()
 	$('#playGame').hide()
 	$('#signOutForm').show()

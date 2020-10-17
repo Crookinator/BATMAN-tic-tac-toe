@@ -18,7 +18,7 @@
 			<p>
 				A game that takes seconds to learn but hours to master!
 			</p>
-			<p id='userAlert'></p>
+			<p aria-live='assertive' id='userAlert'></p>
 		</header>
 		<section>
 			<form id="signUpForm" name="signUpForm">
@@ -50,16 +50,16 @@
 			</form>
 		</section><!-- Game Board Below -->
 		<section id='gameBoard' class="container">
-			<div class="row board h-100">
-				<div class="col-4 box"></div>
-				<div class="col-4 box"></div>
-				<div class="col-4 box"></div>
-				<div class="col-4 box"></div>
-				<div class="col-4 box"></div>
-				<div class="col-4 box"></div>
-				<div class="col-4 box"></div>
-				<div class="col-4 box"></div>
-				<div class="col-4 box"></div>
+			<div aria-live='polite' aria-label='Game Board' class="row board h-100">
+				<div aria-label='top left square' class="col-4 box"></div>
+				<div aria-label='top middle square' class="col-4 box"></div>
+				<div aria-label='top right square' class="col-4 box"></div>
+				<div aria-label='left middle square' class="col-4 box"></div>
+				<div aria-label='center middle square' class="col-4 box"></div>
+				<div aria-label='right middle square' class="col-4 box"></div>
+				<div aria-label='left bottom square' class="col-4 box"></div>
+				<div aria-label='bottom middle square' class="col-4 box"></div>
+				<div aria-label='right bottom square' class="col-4 box"></div>
 			</div>
 		</section>
 	</body>
