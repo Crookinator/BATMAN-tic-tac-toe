@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-1	<head>
+	<head>
 		<title>
 			Hero Vs Villain
 		</title>
@@ -13,61 +13,54 @@
 	<body>
 		<header id='gameHeader'>
 			<h1>
-					Hero vs Villain
-				</h1>
-				<p>
-					A game that takes seconds to learn but hours to master!
-				</p>
-				<p id='userAlert'> </p>
+				Hero vs Villain
+			</h1>
+			<p>
+				A game that takes seconds to learn but hours to master!
+			</p>
+			<p id='userAlert'></p>
 		</header>
 		<section>
 			<form id="signUpForm" name="signUpForm">
 				<fieldset>
-					<legend>Sign up</legend> <label for="signUpEmail">Email</label> <input required id="signUpEmail" type="email" name="credentials[email]" placeholder"Email""> <label for="signUpPassword">Password</label> <input required id="signUpPassword" type="password" name="credentials[password]" placeholder="Password"> <label for="signUpPassword_confirmation">Password Confirmation</label> <input required id="signUpPassword_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"> <input type="submit" value="Sign up">
+					<legend>Sign up</legend> <label for="signUpEmail">Email</label> <input required="" id="signUpEmail" type="email" name="credentials[email]"> <label for="signUpPassword">Password</label> <input required="" id="signUpPassword" type="password" name="credentials[password]" placeholder="Password"> <label for="signUpPassword_confirmation">Password Confirmation</label> <input required="" id="signUpPassword_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"> <input type="submit" value="Sign up">
 				</fieldset>
 			</form>
 		</section>
 		<section>
 			<form id="signInForm" name="signInForm">
 				<fieldset>
-					<legend>Sign in</legend> <label for="signInEmail">Email</label> <input required id="signInEmail" type="email" name="credentials[email]" placeholder="Email"> <label for="signInPassword">Password</label> <input required id="signInPassword" type="password" name="credentials[password]" placeholder="Password"> <input type="submit" value="Sign in">
+					<legend>Sign in</legend> <label for="signInEmail">Email</label> <input required="" id="signInEmail" type="email" name="credentials[email]" placeholder="Email"> <label for="signInPassword">Password</label> <input required="" id="signInPassword" type="password" name="credentials[password]" placeholder="Password"> <input type="submit" value="Sign in">
 				</fieldset>
 			</form>
 		</section>
-		<button id='showSignUp'>Sign Up</button>
-		<button id='showSignIn'>Sign In</button>
-		<button id='playGame'>Play</button>
+		<p>
+			<input type='button' id='showSignUp' value='Sign Up'> <input type='button' id='showSignIn' value='Sign In'> <input type='button' id='playGame' value='Play'>
+		</p>
 		<section>
 			<form id="changePasswordForm" name="changePasswordForm">
 				<fieldset>
-					<legend>Change Password</legend> <input required type="password" name="passwords[old]" placeholder="Old Password"> <input required type="password" name="passwords[new]" placeholder="New Password"> <input type="submit" value="Change Password">
+					<legend>Change Password</legend> <input required="" type="password" name="passwords[old]" placeholder="Old Password"> <input required="" type="password" name="passwords[new]" placeholder="New Password"> <input type="submit" value="Change Password">
 				</fieldset>
 			</form>
 		</section>
 		<section>
 			<form id="signOutForm" class="border" name="signOutForm">
-				 <input type="submit" value="Sign out">
+				<input type="submit" value="Sign out">
 			</form>
+		</section><!-- Game Board Below -->
+		<section id='gameBoard' class="container">
+			<div class="row board h-100">
+				<div class="col-4 box"></div>
+				<div class="col-4 box"></div>
+				<div class="col-4 box"></div>
+				<div class="col-4 box"></div>
+				<div class="col-4 box"></div>
+				<div class="col-4 box"></div>
+				<div class="col-4 box"></div>
+				<div class="col-4 box"></div>
+				<div class="col-4 box"></div>
+			</div>
 		</section>
-<!-- Game Board Below -->
-<!--Source of table info-->
-<!-- https://www.w3schools.com/html/html_tables.asp -->
-		<table id='gameBoard'>
-			<tr>
-				<td>x</td>
-				<td>x</td>
-				<td>x</td>
-			</tr>
-			<tr>
-				<td>x</td>
-				<td>x</td>
-				<td>x</td>
-			</tr>
-			<tr>
-				<td>x</td>
-				<td>x</td>
-				<td>x</td>
-			</tr>
-</table>
 	</body>
 </html>

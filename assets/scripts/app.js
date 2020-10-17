@@ -9,6 +9,7 @@
 const authEvents = require('./authentication/events')
 const uiAuth = require('./authentication/ui')
 const gameUi = require('./game/ui')
+const gameEvents = require('./game/events')
 
 
 $(() => {
@@ -24,4 +25,5 @@ $(() => {
 	
 	//in game event listeners
 	$('#playGame').on('click',gameUi.inGameUi)
+	$('.box').on('click', gameEvents.onBoxClick)
 })
