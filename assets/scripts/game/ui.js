@@ -11,6 +11,11 @@ const inGameUi = () => {
 	$('#showSignUp').hide()
 }
 
+const onGameSuccess = (res) => {
+	console.log('response is ' + res)
+
+}
+
 module.exports = {
 	inGameUi
 }

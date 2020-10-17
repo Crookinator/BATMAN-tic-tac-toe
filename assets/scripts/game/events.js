@@ -1,4 +1,9 @@
 'use strict'
+const gameApi = require('./api')
+const gameUi = require('./ui')
+
+
+
 // set current player
 let currentPlayer = 'X'
 
@@ -11,9 +16,16 @@ let currentPlayer = 'X'
 	box.text(currentPlayer)
 	box.css('background', 'transparent').text(currentPlayer)
 	// Change the current player
-	currentPlayer = currentPlayer === 'O' ? '✕' : 'O'
+	currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
  }
 
+const onGameStart = (event) => {
+	event.preventDefault()
+	gameApi.gameIndex()
+	.then(gameUi.onIndexSuccess)
+}
+
 module.exports = {
-	onBoxClick
+	onBoxClick,
+	onGameStart
 }

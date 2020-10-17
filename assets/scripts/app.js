@@ -24,6 +24,6 @@ $(() => {
 	$('#showSignIn').on('click', uiAuth.resetForms)
 	
 	//in game event listeners
-	$('#playGame').on('click',gameUi.inGameUi)
+	$('#playGame').on('click', gameEvents.onStartGame)
 	$('.box').on('click', gameEvents.onBoxClick)
 })
