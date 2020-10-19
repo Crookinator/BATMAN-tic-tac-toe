@@ -47,7 +47,8 @@ const onSignOutFailure = function () {
 }
 
 const resetForms = () => {
-	$('#userAlert').text('')
+	$('#userAlert').text('Sign In Below')
+	$('#startNewGame').hide()
 	$('#gameBoard').hide()
 	$('#playGame').hide()
 	$('#signOutForm').hide()
