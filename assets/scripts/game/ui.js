@@ -5,7 +5,7 @@ const inGameUi = () => {
 	$('#gameBoard').show()
 	$('#playGame').hide()
 	$('#signOutForm').show()
-	$('#changePasswordForm').show()
+	$('#changePasswordForm').hide()
 	$('#signUpForm').hide()
 	$('#signInForm').hide()
 	$('#showSignUp').hide()
