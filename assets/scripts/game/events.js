@@ -19,13 +19,15 @@ let currentPlayer = 'X'
 	currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
  }
 
-const onGameStart = (event) => {
+const onStartGame = (event) => {
+	console.log('working')
 	event.preventDefault()
 	gameApi.gameIndex()
 	.then(gameUi.onIndexSuccess)
+	.catch(gameUi.onError)
 }
 
 module.exports = {
 	onBoxClick,
-	onGameStart
+	onStartGame
 }

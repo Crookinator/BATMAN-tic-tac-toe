@@ -11,11 +11,17 @@ const inGameUi = () => {
 	$('#showSignUp').hide()
 }
 
-const onGameSuccess = (res) => {
+const onIndexSuccess = (res) => {
+	inGameUi()
 	console.log('response is ' + res)
 
 }
 
+const onError = function (error) {
+	console.log('error is ' + error)
+}
 module.exports = {
-	inGameUi
+	inGameUi,
+	onIndexSuccess,
+	onError
 }

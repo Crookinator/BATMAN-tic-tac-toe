@@ -12,7 +12,7 @@ const signUpFailure = function(error) {
 }
 
 const signInSuccess = function(response) {
-  $("#userAlert").text('Sign in Successful! Click "Play"!')
+  $("#userAlert").text('Sign in Successful! Click the play button to get started.')
   // save the user in the api response to the store object
   store.user = response.user
   $('#showSignUp').hide()
