@@ -2,6 +2,7 @@
 // require store 
 const store = require('../store')
 
+
 // set a variable for number of games played
 let gamesPlayed
 
@@ -17,17 +18,24 @@ const inGameUi = () => {
 }
 
 const onIndexSuccess = (res) => {
-	//set games to a key on store
-	store.games = res.games
-	//set gamesPlayed to store.games
-	gamesPlayed = store.games.length
+	//set gamesPlayed to res.games
+	gamesPlayed = res.games.length
 	//call the inGameUi
 	inGameUi()
 }
 
-const onCreateSuccess = () => {
+const onCreateSuccess = res => {
+		store.game = res.game
 	$('#userAlert').text('New game started. X goes first.')
 	$('#gameBoard').show()
+}
+
+const onUpdateSuccess = () => $('#userAlert').text('Nice move!') 
+
+const onShowSuccess = res => {
+	//set the store to the updated game
+	store.game = res.game
+	console.log(store.game)
 }
 
 const onError = error => {
@@ -39,5 +47,7 @@ module.exports = {
 	inGameUi,
 	onIndexSuccess,
 	onCreateSuccess,
+	onUpdateSuccess,
+	onShowSuccess,
 	onError
 }

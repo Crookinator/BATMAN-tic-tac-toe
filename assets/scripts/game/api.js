@@ -1,7 +1,7 @@
 'use strict'
 const store = require('../store')
 const config = require('../config')
-
+const gameUi = require('./ui')
 // gets the games object
 const gameIndex = function () {
   return $.ajax({
@@ -11,7 +11,6 @@ const gameIndex = function () {
     },
 		method: 'GET',
   })
-	console.log('getting game index')
 }
 
 const gameCreate = function () {
@@ -22,11 +21,42 @@ const gameCreate = function () {
 		},
 		method: 'POST'
 	})
-	console.log('api working')
 }
+
+const gameUpdate = function (index, currentPlayer, over) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: currentPlayer
+        },
+        over: over
+      }
+    }
+  })
+}
+
+const gameShow = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games' + store.game._id,
+			headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+		method: 'GET',
+  })
+}
+
 
 module.exports = {
 	gameIndex,
-	gameCreate
+	gameCreate,
+	gameUpdate,
+	gameShow
 
 }

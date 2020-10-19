@@ -6,12 +6,10 @@ const api = require('./api')
 // event handler for the sign up event listener
 const onSignUp = function (event) {
 		event.preventDefault()
-		// console.log('Sign up firing')
 		// capture the form from the event
 		const form = event.target
 		// use getFormFields to extract the data from the form
 		const data = getFormFields(form)
-		console.log(JSON.stringify(data))
 
 		// send data to the api
 		api.signUp(data)

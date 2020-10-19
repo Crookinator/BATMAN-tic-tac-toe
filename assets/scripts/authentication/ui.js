@@ -4,8 +4,7 @@ const store = require('./../store')
 
 const signUpSuccess = function(response) {
   $("#userAlert").text('Thanks ' + response.user.email + ' Your sign up was successful! Please sign in to play.')
-	$('#signInForm').show()
-}
+	resetForms()}
 
 const signUpFailure = function(error) {
   $("#userAlert").text('Error: Sign up failed! Please try again.')
@@ -37,7 +36,7 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function () {
-  $('#userAlert').text('Sign out successful. See you next time!')
+  $('#userAlert').text('Sign out successful. See you next time ' + store.user.email + '!')
   store.user = null
 	resetForms()
 }
