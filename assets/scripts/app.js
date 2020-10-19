@@ -27,5 +27,6 @@ $(() => {
 	
 	//in game event listeners
 	$('#playGame').on('click', gameEvents.onPlay)
+	$('#startNewGame').on('click', gameEvents.onStart)
 	$('.box').on('click', gameEvents.onBoxClick)
 })

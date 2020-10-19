@@ -20,14 +20,24 @@ let currentPlayer = 'X'
  }
 
 const onPlay = (event) => {
-	console.log('working')
 	event.preventDefault()
 	gameApi.gameIndex()
 	.then(gameUi.onIndexSuccess)
 	.catch(gameUi.onError)
 }
 
+const onStart = (event) => {
+	event.preventDefault()
+	
+	gameApi.gameCreate()
+	.then(gameUi.onCreateSuccess)
+	.catch(gameUi.onError)
+} 
+
+
+
 module.exports = {
 	onBoxClick,
-	onPlay
+	onPlay,
+	onStart
 }

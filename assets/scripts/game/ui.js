@@ -16,7 +16,6 @@ const inGameUi = () => {
 	$('#showSignUp').hide()
 }
 
-
 const onIndexSuccess = (res) => {
 	//set games to a key on store
 	store.games = res.games
@@ -24,15 +23,21 @@ const onIndexSuccess = (res) => {
 	gamesPlayed = store.games.length
 	//call the inGameUi
 	inGameUi()
-	
-
 }
 
-const onError = function (error) {
-	console.log('error is ' + error)
+const onCreateSuccess = () => {
+	$('#userAlert').text('New game started. X goes first.')
+	$('#gameBoard').show()
 }
+
+const onError = error => {
+	$('#userAlert').text('Error, please try again.')
+}
+
+
 module.exports = {
 	inGameUi,
 	onIndexSuccess,
+	onCreateSuccess,
 	onError
 }

@@ -14,8 +14,19 @@ const gameIndex = function () {
 	console.log('getting game index')
 }
 
+const gameCreate = function () {
+	return $.ajax({
+		url: config.apiUrl + '/games',
+		headers: {
+			Authorization: 'Bearer ' + store.user.token
+		},
+		method: 'POST'
+	})
+	console.log('api working')
+}
 
 module.exports = {
-	gameIndex
+	gameIndex,
+	gameCreate
 
 }
