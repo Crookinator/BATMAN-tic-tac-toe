@@ -2,7 +2,6 @@
 // require store 
 const store = require('../store')
 let turn = true
-const player = turn ? 'X':'O'
 // set a variable for number of games played
 let gamesPlayed
 
@@ -41,8 +40,10 @@ $('.clicked').prop('disabled', false)
 const onUpdateSuccess = (res) => {
 	store.game = res.game
 	turn = !turn
-
+const player = turn ? 'X':'O'
+console.log(player)
 	$('#userAlert').text(`It is ${player} turn`)
+	return turn
 }
 
 // what happens on successful GET request of specific game._id

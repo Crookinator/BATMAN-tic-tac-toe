@@ -3,7 +3,7 @@ const gameApi = require('./api')
 const gameUi = require('./ui')
 const store = require('../store')
 // set isOver to false
-const gameState = {
+let gameState = {
 	moves: 0,
 	isOver: false,
 	winner: ''
@@ -11,7 +11,9 @@ const gameState = {
 // set current player
 let currentPlayer = 'X'
 const checkWin = function (arr) {
-    if (gameState.moves < 5) return
+	console.log('inside checkWin', arr, gameState.moves)
+    if (gameState.moves > 5) {
+    	
 	for (let i = 0; i <= arr.length; i++) {
 		if (arr[0] === arr[1] && arr[1] === arr[2]) {
             gameState.winner = arr[0]
@@ -51,8 +53,9 @@ const checkWin = function (arr) {
               gameState.isOver = true
               return gameState
             }
-						return gameState
+						return 
 		}
+	}
 	}
 }
 // box click event handler
@@ -60,7 +63,7 @@ const onBoxClick = (event) => {
 
 checkWin(store.game.cells)
 console.log(gameState.moves)	
-	if (gameState.isOver) {
+	if (gameState.isOver === true) {
 		$('#userAlert').text(`Winner is ${gameState.winner}`)
 		return
 	} else {
@@ -74,11 +77,19 @@ box.text(currentPlayer)
 //pass box[index], currentPlayer, and over to gameUpdate
 gameApi.gameUpdate(box.data('cell-index'), currentPlayer, gameState.isOver)
 .then(gameUi.onUpdateSuccess)
-.catch(gameUi.onError)
+		.then(()=> {
 //ternary opporator to switch currentPlayer between X and O
 currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
 gameState.moves++
-checkWin(store.game.cells)
+console.log(gameState)			
+		checkWin(store.game.cells)
+			if (gameState.isOver === true) {
+				$('#userAlert').text(`Winner is ${gameState.winner}`)
+				return
+			} 
+			
+		})
+.catch(gameUi.onError)
 return gameState		
 	}
 	
@@ -93,6 +104,12 @@ const onPlay = (event) => {
 // when Start New Game is clicked
 const onStart = (event) => {
 	event.preventDefault()
+	 gameState = {
+		moves: 0,
+		isOver: false,
+		winner: ''
+	}
+	currentPlayer = 'X'
 	gameApi.gameCreate()
 		.then(gameUi.onCreateSuccess)
 		.catch(gameUi.onError)
