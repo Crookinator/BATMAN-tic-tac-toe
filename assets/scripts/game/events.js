@@ -6,10 +6,7 @@ const store = require('../store')
 
 // set isOver to false
 let isOver = false
-
-// set a variable for tie
-let isTie = false
-
+	
 // set current player
 let currentPlayer = 'X'
 
@@ -36,6 +33,8 @@ if (notTie === false) {
 	isTie = true
 	isOver = true
 }
+
+
 
 
 //pass box[index], currentPlayer, and over to gameUpdate
@@ -71,7 +70,5 @@ const onStart = (event) => {
 module.exports = {
 	onBoxClick,
 	onPlay,
-	onStart,
-	isTie,
-	isOver
+	onStart
 }

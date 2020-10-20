@@ -1,7 +1,6 @@
 'Use Strict'
 // require store 
 const store = require('../store')
-const gameevents = require('./events')
 
 // set a variable for number of games played
 let gamesPlayed
@@ -40,17 +39,6 @@ $('.clicked').prop('disabled', false)
 // what happens on successful update or PATCH request
 const onUpdateSuccess = (res) => {
 	store.game = res.game
-	if (store.game.isOver === true && gameEvents.isTie === true) {
-		$('#gameBoard').hide()
-		$('#userAlert').text('TIE GAME! Click Start New Game to keep playing.')
-	} else if (store.game.isOver === true) {
-		$('#gameBoard').hide()
-		$('#userAlert').text(gameEvents.currentPlayer + 'WINS! Click Start New Game to play again.') 
-	} else {
-		gameEvents.currentPlayer = gameEvents.currentPlayer === 'O' ? 'X' : 'O'
-		
-		$('#userAlert').text(gameEvents.currentPlayer + "'s turn.")
-	}
 }
 
 // what happens on successful GET request of specific game._id
