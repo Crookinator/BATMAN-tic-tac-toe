@@ -1,7 +1,8 @@
 'Use Strict'
 // require store 
 const store = require('../store')
-
+let turn = true
+const player = turn ? 'X':'O'
 // set a variable for number of games played
 let gamesPlayed
 
@@ -39,6 +40,9 @@ $('.clicked').prop('disabled', false)
 // what happens on successful update or PATCH request
 const onUpdateSuccess = (res) => {
 	store.game = res.game
+	turn = !turn
+
+	$('#userAlert').text(`It is ${player} turn`)
 }
 
 // what happens on successful GET request of specific game._id
