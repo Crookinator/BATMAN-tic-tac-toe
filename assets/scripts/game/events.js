@@ -6,7 +6,10 @@ const store = require('../store')
 
 // set isOver to false
 let isOver = false
-	
+
+// set a variable for tie
+let isTie = false
+
 // set current player
 let currentPlayer = 'X'
 
@@ -25,6 +28,15 @@ box.text(currentPlayer)
 
 //set store.game.cells to above move 
 store.game.cells[box.data('cell-index')] = currentPlayer
+
+//set boolean for tie
+let notTie = store.game.cells.includes('')
+//if statement to prove boolean
+if (notTie === false) {
+	isTie = true
+	isOver = true
+}
+
 
 //pass box[index], currentPlayer, and over to gameUpdate
 gameApi.gameUpdate(box.data('cell-index'), currentPlayer, false)
@@ -59,5 +71,7 @@ const onStart = (event) => {
 module.exports = {
 	onBoxClick,
 	onPlay,
-	onStart
+	onStart,
+	isTie,
+	isOver
 }
