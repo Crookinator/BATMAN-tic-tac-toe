@@ -2,7 +2,7 @@
 const gameApi = require('./api')
 const gameUi = require('./ui')
 const store = require('../store')
-// set isOver to false
+// set an object to track the games progress
 let gameState = {
 	moves: 0,
 	isOver: false,
@@ -11,62 +11,55 @@ let gameState = {
 // set current player
 let currentPlayer = 'X'
 const checkWin = function (arr) {
-	console.log('inside checkWin', arr, gameState.moves)
+	console.log('inside checkWin',  gameState)
     if (gameState.moves > 5) {
-    	
 	for (let i = 0; i <= arr.length; i++) {
-		if (arr[0] === arr[1] && arr[1] === arr[2]) {
+		if (arr[0] === arr[1] && arr[1] === arr[2] && arr[0] !== '') {
             gameState.winner = arr[0]
 			gameState.isOver = true
 			return gameState
-		} else if (arr[3] === arr[4] && arr[3] === arr[5]) {
+		} else if (arr[3] === arr[4] && arr[3] === arr[5] && arr[3] !== '') {
             gameState.winner = arr[3]
 			gameState.isOver = true
 			return gameState
-		} else if (arr[6] === arr[7] && arr[7] === arr[8]) {
+		} else if (arr[6] === arr[7] && arr[7] === arr[8] && arr[6] !== '') {
             gameState.winner = arr[6]
 			gameState.isOver = true
 			return gameState
-		} else if (arr[0] === arr[3] && arr[3] === arr[6]) {
+		} else if (arr[0] === arr[3] && arr[3] === arr[6] && arr[0] !== '') {
             gameState.winner = arr[0]
 			gameState.isOver = true
 			return gameState
-		} else if (arr[1] === arr[4] && arr[1] === arr[7]) {
+		} else if (arr[1] === arr[4] && arr[1] === arr[7] && arr[1] !== '') {
             gameState.winner = arr[1]
 			gameState.isOver = true
 			return gameState
-		} else if (arr[2] === arr[5] && arr[2] === arr[8]) {
+		} else if (arr[2] === arr[5] && arr[2] === arr[8] && arr[2] !== '') {
             gameState.winner = arr[2]
 			gameState.isOver = true
 			return gameState
-		} else if (arr[0] === arr[4] && arr[0] === arr[8]) {
+		} else if (arr[0] === arr[4] && arr[0] === arr[8] && arr[0] !== '') {
             gameState.winner = arr[0]
 			gameState.isOver = true
 			return gameState
-		} else if (arr[2] === arr[4] && arr[4] === arr[6]) {
+		} else if (arr[2] === arr[4] && arr[4] === arr[6] && arr[2] !== '') {
             gameState.winner = arr[2]
 			gameState.isOver = true
 			return gameState
 		} else {
-            if (gameState.moves === 9) {
+            if (gameState.moves === 9 && arr[0] !== '') {
               gameState.winner = 'Tie'
               gameState.isOver = true
               return gameState
+            }else {
+            	return gameState
             }
-						return 
 		}
 	}
 	}
 }
 // box click event handler
 const onBoxClick = (event) => {
-
-checkWin(store.game.cells)
-console.log(gameState.moves)	
-	if (gameState.isOver === true) {
-		$('#userAlert').text(`Winner is ${gameState.winner}`)
-		return
-	} else {
 // use event.target to select the specific box clicked
 const box = $(event.target)
 //disable future clicks on box and set a class of clicked 
@@ -81,18 +74,14 @@ gameApi.gameUpdate(box.data('cell-index'), currentPlayer, gameState.isOver)
 //ternary opporator to switch currentPlayer between X and O
 currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
 gameState.moves++
-console.log(gameState)			
 		checkWin(store.game.cells)
 			if (gameState.isOver === true) {
 				$('#userAlert').text(`Winner is ${gameState.winner}`)
 				return
 			} 
-			
 		})
 .catch(gameUi.onError)
 return gameState		
-	}
-	
 }
 // when play is clicked
 const onPlay = (event) => {
