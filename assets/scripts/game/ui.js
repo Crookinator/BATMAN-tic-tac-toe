@@ -28,9 +28,16 @@ const onCreateSuccess = res => {
 		store.game = res.game
 	$('#userAlert').text('New game started. X goes first.')
 	$('#gameBoard').show()
+	
+	//reset buttons on game board to clickable
+$('.clicked').prop('disabled', false)
+	$('.clicked').text('')	
 }
 
-const onUpdateSuccess = () => $('#userAlert').text('Nice move!') 
+const onUpdateSuccess = (res) => {
+	$('#userAlert').text('Nice move!') 
+	store.game = res.game
+}
 
 const onShowSuccess = res => {
 	//set the store to the updated game
