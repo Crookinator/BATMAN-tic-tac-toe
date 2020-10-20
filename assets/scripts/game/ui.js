@@ -2,10 +2,10 @@
 // require store 
 const store = require('../store')
 
-
 // set a variable for number of games played
 let gamesPlayed
 
+// the in-game status for the forms from authentication
 const inGameUi = () => {
 	$('#userAlert').text('You have played ' + gamesPlayed + ' games. click Start New Game.')
 	$('#startNewGame').show()
@@ -17,6 +17,7 @@ const inGameUi = () => {
 	$('#showSignUp').hide()
 }
 
+// what happens with a successful index request
 const onIndexSuccess = (res) => {
 	//set gamesPlayed to res.games
 	gamesPlayed = res.games.length
@@ -24,6 +25,7 @@ const onIndexSuccess = (res) => {
 	inGameUi()
 }
 
+// what happens on successful create / POST request 
 const onCreateSuccess = res => {
 		store.game = res.game
 	$('#userAlert').text('New game started. X goes first.')
@@ -34,17 +36,20 @@ $('.clicked').prop('disabled', false)
 	$('.clicked').text('')	
 }
 
+// what happens on successful update or PATCH request
 const onUpdateSuccess = (res) => {
 	$('#userAlert').text('Nice move!') 
 	store.game = res.game
 }
 
+// what happens on successful GET request of specific game._id
 const onShowSuccess = res => {
 	//set the store to the updated game
 	store.game = res.game
 	console.log(store.game)
 }
 
+// error message for any error in processing above requests
 const onError = error => {
 	$('#userAlert').text('Error, please try again.')
 }
