@@ -4,7 +4,7 @@ const store = require('./../store')
 // what happens when the sign up is successful
 const signUpSuccess = function(response) {
   $("#userAlert").text('Thanks ' + response.user.email + ' Your sign up was successful! Please sign in to play.')
-	resetForms()}
+	resetForms()
 
 const signUpFailure = function(error) {
   $("#userAlert").text('Error: Sign up failed! Please try again.')
@@ -19,7 +19,7 @@ const signInSuccess = function(response) {
 	$('#showSignUp').hide()
   $('#signOutForm').show()
   $('#signUpForm').hide()
-  $('#signInForm').hide()
+  $('#signInForm').hide().trigger('reset')
 	$('#playGame').show()
 	
 }
@@ -30,6 +30,7 @@ const signInFailure = function() {
 
 const onChangePasswordSuccess = function () {
   $('#userAlert').text('Password changed successfully!')
+	$('#changePasswordForm').hide().trigger('reset')
 }
 
 const onChangePasswordFailure = function () {
@@ -40,6 +41,8 @@ const onSignOutSuccess = function () {
   $('#userAlert').text('Sign out successful. See you next time ' + store.user.email + '!')
   store.user = null
 	resetForms()
+	$('#showSignUp').show()
+	$('#showChangePassword').hide()
 }
 
 const onSignOutFailure = function () {
@@ -50,6 +53,7 @@ const resetForms = () => {
 	$('#userAlert').text('Sign In Below')
 	$('#startNewGame').hide()
 	$('#changePasswordForm').hide()
+	$('#showChangePassword').hide()
 	$('#gameBoard').hide()
 	$('#playGame').hide()
 	$('#playGame').text('Play')
@@ -57,7 +61,7 @@ const resetForms = () => {
 	$('#showSignIn').hide()
 	$('#changePasswordForm').hide()
 	$('#signUpForm').hide()
-	$('#signInForm').show()
+	$('#signInForm').show().trigger('reset')
 }
 
 const onShowSignUp = () => {
