@@ -2,56 +2,62 @@
 <html>
 	<head>
 		<title>
-			Hero Vs Villain
+			Batman Tic-Tac-Toe
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Do not add `link` tags-->
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"><!-- Do not add `script` tags-->
 
 		<script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
 		<script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+		<audio id='iAmBatman'>
+		  <source src="public/i-am-batman.mp3" type="audio/mpeg">
+		</audio>
+		<audio id='jokerLaugh'>
+		  <source src="public/batman-joker-laugh.mp3" type="audio/mpeg">
+		</audio>
 	</head>
-	<body>
+		<body>
 		<header id='gameHeader'>
+			<audio id='batmanTheme' controls>
+			  <source src="public/batman-the-animated-series.mp3" type="audio/mpeg">
+			</audio>
+			<div class='container--custom'>
 			<h1>
-				Hero vs Villain
+				BATMAN: tic-tac-toe
 			</h1>
 			<p>
 				A game that takes seconds to learn but hours to master!
 			</p>
-			<p aria-live='assertive' id='userAlert'></p>
+					</div>
 		</header>
 		<section>
-			<form id="signUpForm" name="signUpForm">
+			<div class='container--custom global-spacing--large'>
+				<h3 aria-live='assertive' class='h3' id='userAlert'></h3>
+			</div>
+			<form class='container--custom global-spacing--large'  id="signUpForm" name="signUpForm">
 				<fieldset>
-					<legend>Sign up</legend> <label for="signUpEmail">Email</label> <input required="" id="signUpEmail" type="email" name="credentials[email]"> <label for="signUpPassword">Password</label> <input required="" id="signUpPassword" type="password" name="credentials[password]" placeholder="Password"> <label for="signUpPassword_confirmation">Password Confirmation</label> <input required="" id="signUpPassword_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"> <input type="submit" value="Sign up">
+					<legend>Sign up</legend> <label for="signUpEmail">Email</label> <input required="" id="signUpEmail" type="email" name="credentials[email]"> <label for="signUpPassword">Password</label> <input required="" id="signUpPassword" type="password" name="credentials[password]" placeholder="Password"> <label for="signUpPassword_confirmation">Password Confirmation</label> <input required="" id="signUpPassword_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"> <input class='uiButton' type="submit"value='Sign up'>
 				</fieldset>
 			</form>
 		</section>
 		<section>
-			<form id="signInForm" name="signInForm">
+			<form class='container--custom global-spacing--large' id="signInForm" name="signInForm">
 				<fieldset>
-					<legend>Sign in</legend> <label for="signInEmail">Email</label> <input required="" id="signInEmail" type="email" name="credentials[email]" placeholder="Email"> <label for="signInPassword">Password</label> <input required="" id="signInPassword" type="password" name="credentials[password]" placeholder="Password"> <input type="submit" value="Sign in">
+					<legend>Sign in</legend> <label for="signInEmail">Email</label> <input required="" id="signInEmail" type="email" name="credentials[email]" placeholder="Email"> <label for="signInPassword">Password</label> <input required="" id="signInPassword" type="password" name="credentials[password]" placeholder="Password"> <input class='uiButton' type="submit"value='Sign in'>
 				</fieldset>
 			</form>
 		</section>
-		<p>
-			<input type='button' id='showSignUp' value='Sign Up'> <input type='button' id='showSignIn' value='Sign In'> <input type='button' id='playGame' value='Play'>
-			<button id='startNewGame'>Start New Game</button>	
+		<section>
+			<form class='container--custom global-spacing--large' id="changePasswordForm" name="changePasswordForm">
+				<fieldset>
+					<legend>Change Password</legend> <label for="oldPassword">Old Password:</label><input required="" id="oldPassword" type="password" name="passwords[old]" placeholder="Old Password">  <label for="newPassword">New Password:</label><input required="" id='newPassword' type="password" name="passwords[new]" placeholder="New Password"> <input class='uiButton' type="submit" value="Change Password">
+				</fieldset>
+			</form>
+		</section>
 
-		</p>
-		<section>
-			<form id="changePasswordForm" name="changePasswordForm">
-				<fieldset>
-					<legend>Change Password</legend> <input required="" type="password" name="passwords[old]" placeholder="Old Password"> <input required="" type="password" name="passwords[new]" placeholder="New Password"> <input type="submit" value="Change Password">
-				</fieldset>
-			</form>
-		</section>
-		<section>
-			<form id="signOutForm" class="border" name="signOutForm">
-				<input type="submit" value="Sign out">
-			</form>
-		</section>
+		
 		<!-- Game Board Below -->
+
 		<section id='gameBoard' class="container">
 			<div aria-live='polite' aria-label='Game Board' class="row board h-100">
 				<button  data-cell-index="0" aria-label='top left square' class="col-4 box"></button>
@@ -64,6 +70,16 @@
 				<button data-cell-index="7" aria-label='bottom middle square' class="col-4 box"></button>
 				<button data-cell-index="8" aria-label='right bottom square' class="col-4 box"></button>
 			</div>
+		</section>
+		<form class='container--custom global-spacing--large'>
+			<input class='uiButton' type='button' id='showSignUp' value='Sign up'> <input type='button' class='uiButton' id='showSignIn' value='Sign in'> <input type='button' class='uiButton' id='playGame' value='Get All Games'>
+			<input type='button' class='uiButton' id='startNewGame' value='Start New Game'>	
+
+		</form>
+				<section>
+			<form id="signOutForm" class='container--custom global-spacing--large'name="signOutForm">
+				<input class='uiButton' type="submit" value='Sign out'>
+			</form>
 		</section>
 	</body>
 </html>

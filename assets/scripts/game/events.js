@@ -12,7 +12,7 @@ let gameState = {
 let currentPlayer = 'X'
 const checkWin = function (arr) {
 	console.log('inside checkWin',  gameState)
-    if (gameState.moves > 5) {
+    if (gameState.moves >= 5) {
 	for (let i = 0; i <= arr.length; i++) {
 		if (arr[0] === arr[1] && arr[1] === arr[2] && arr[0] !== '') {
             gameState.winner = arr[0]
@@ -47,7 +47,7 @@ const checkWin = function (arr) {
 			gameState.isOver = true
 			return gameState
 		} else {
-            if (gameState.moves === 9 && arr[0] !== '') {
+            if (gameState.moves === 9) {
               gameState.winner = 'Tie'
               gameState.isOver = true
               return gameState
@@ -76,9 +76,20 @@ currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
 gameState.moves++
 		checkWin(store.game.cells)
 			if (gameState.isOver === true) {
-				$('#userAlert').text(`Winner is ${gameState.winner}`)
+				$('#gameBoard button').prop('disabled', true)
+				$('#gameBoard button').addClass('clicked')
+				if (gameState.winner === 'X') {
+					$('#userAlert').text(`Batman defeats Joker once again!`)
+					$('#iAmBatman').get(0).play()
+				} else if (gameState.winner === 'O') {
+					$('#userAlert').text('Looks like Batman finally met his match')
+					$('#jokerLaugh').get(0).play()
+				} else if (gameState.moves === 9) {
+					gameState.isOver = true
+					$('#userAlert').text('It is a Tie')
+				}
 				return
-			} 
+			}
 		})
 .catch(gameUi.onError)
 return gameState		

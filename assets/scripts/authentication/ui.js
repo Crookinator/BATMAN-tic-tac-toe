@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('./../store')
-
+// what happens when the sign up is successful
 const signUpSuccess = function(response) {
   $("#userAlert").text('Thanks ' + response.user.email + ' Your sign up was successful! Please sign in to play.')
 	resetForms()}
@@ -11,10 +11,12 @@ const signUpFailure = function(error) {
 }
 
 const signInSuccess = function(response) {
-  $("#userAlert").text('Sign in Successful! Click the play button to get started.')
+  $("#userAlert").text('Sign in Successful! Click the Get All Games button to see total games played & start new game.')
   // save the user in the api response to the store object
   store.user = response.user
-  $('#showSignUp').hide()
+  //play theme song!
+	$('#batmanTheme').get(0).play()
+	$('#showSignUp').hide()
 	$('#changePasswordForm').show()
   $('#signOutForm').show()
   $('#signUpForm').hide()
@@ -50,6 +52,7 @@ const resetForms = () => {
 	$('#startNewGame').hide()
 	$('#gameBoard').hide()
 	$('#playGame').hide()
+	$('#playGame').text('Play')
 	$('#signOutForm').hide()
 	$('#showSignIn').hide()
 	$('#changePasswordForm').hide()

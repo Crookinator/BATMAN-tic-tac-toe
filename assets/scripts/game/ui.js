@@ -9,7 +9,6 @@ let gamesPlayed
 const inGameUi = () => {
 	$('#userAlert').text('You have played ' + gamesPlayed + ' games. click Start New Game.')
 	$('#startNewGame').show()
-	$('#playGame').hide()
 	$('#signOutForm').show()
 	$('#changePasswordForm').hide()
 	$('#signUpForm').hide()
@@ -21,13 +20,21 @@ const inGameUi = () => {
 const onIndexSuccess = (res) => {
 	//set gamesPlayed to res.games
 	gamesPlayed = res.games.length
-	//call the inGameUi
-	inGameUi()
+	// set the in game view
+	$('#userAlert').text('You have played ' + gamesPlayed + ' games. click Start New Game.')
+	$('#gamePlay').text('Get Games Played')
+	$('#startNewGame').show()
+	$('#signOutForm').show()
+	$('#changePasswordForm').hide()
+	$('#signUpForm').hide()
+	$('#signInForm').hide()
+	$('#showSignUp').hide()
 }
 
 // what happens on successful create / POST request 
 const onCreateSuccess = res => {
 		store.game = res.game
+	turn = true
 	$('#userAlert').text('New game started. X goes first.')
 	$('#gameBoard').show()
 	
@@ -41,8 +48,7 @@ const onUpdateSuccess = (res) => {
 	store.game = res.game
 	turn = !turn
 const player = turn ? 'X':'O'
-console.log(player)
-	$('#userAlert').text(`It is ${player} turn`)
+	$('#userAlert').text(`It is time for ${player} to move`)
 	return turn
 }
 
