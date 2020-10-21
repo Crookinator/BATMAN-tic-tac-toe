@@ -115,7 +115,10 @@ const onStart = (event) => {
 		.catch(gameUi.onError)
 }
 // function to show change password 
-const showChangePassword = event => $('#changePasswordForm').show()
+const showChangePassword = event => {
+	$('#changePasswordForm').show()
+	$('#gameBoard').hide()
+}
 
 module.exports = {
 	onBoxClick,
