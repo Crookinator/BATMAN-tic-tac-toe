@@ -35,7 +35,7 @@ const onIndexSuccess = (res) => {
 const onCreateSuccess = res => {
 		store.game = res.game
 	turn = true
-	$('#userAlert').text('New game started. X goes first.')
+	$('#userAlert').text('New game started. Batman is always X, and X, goes first.')
 	$('#gameBoard').show()
 	
 	//reset buttons on game board to clickable
