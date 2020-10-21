@@ -17,7 +17,6 @@ const signInSuccess = function(response) {
   //play theme song!
 	$('#batmanTheme').get(0).play()
 	$('#showSignUp').hide()
-	$('#changePasswordForm').show()
   $('#signOutForm').show()
   $('#signUpForm').hide()
   $('#signInForm').hide()
@@ -50,6 +49,7 @@ const onSignOutFailure = function () {
 const resetForms = () => {
 	$('#userAlert').text('Sign In Below')
 	$('#startNewGame').hide()
+	$('#changePasswordForm').hide()
 	$('#gameBoard').hide()
 	$('#playGame').hide()
 	$('#playGame').text('Play')

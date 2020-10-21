@@ -29,4 +29,5 @@ $(() => {
 	$('#playGame').on('click', gameEvents.onPlay)
 	$('#startNewGame').on('click', gameEvents.onStart)
 	$('.box').on('click', gameEvents.onBoxClick)
+	$('#showChangePassword').on('click', gameEvents.showChangePassword)
 })
