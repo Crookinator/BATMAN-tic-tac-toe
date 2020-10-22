@@ -11,7 +11,7 @@ let gameState = {
 // set current player
 let currentPlayer = 'X'
 const checkWin = function (arr) {
-	console.log('inside checkWin',  gameState)
+	 ('inside checkWin',  gameState)
     if (gameState.moves >= 5) {
 	for (let i = 0; i <= arr.length; i++) {
 		if (arr[0] === arr[1] && arr[1] === arr[2] && arr[0] !== '') {

@@ -56,7 +56,7 @@ const player = turn ? 'X':'O'
 const onShowSuccess = res => {
 	//set the store to the updated game
 	store.game = res.game
-	console.log(store.game)
+	 (store.game)
 }
 
 // error message for any error in processing above requests
