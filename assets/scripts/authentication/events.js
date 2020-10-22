@@ -44,7 +44,7 @@ const onChangePassword = function (event) {
   const data = getFormFields(form)
   // send data in AJAX request to the API
   api.changePassword(data)
-    // handle successul response
+    // handle successful response
     .then(ui.onChangePasswordSuccess)
     // handle failed response
     .catch(ui.onChangePasswordFailure)
@@ -55,7 +55,7 @@ const onSignOut = function (event) {
   event.preventDefault()
   // send data in AJAX request to the API
   api.signOut()
-    // handle successul response
+    // handle successful response
     .then(ui.onSignOutSuccess)
     // handle failed response
     .catch(ui.onSignOutFailure)
