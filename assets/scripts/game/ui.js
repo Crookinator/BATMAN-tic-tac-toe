@@ -9,6 +9,7 @@ let gamesPlayed
 const inGameUi = () => {
 	$('#userAlert').text('You have played ' + gamesPlayed + ' games. click Start New Game.')
 	$('#startNewGame').show()
+	$('#showChangePassword').show()
 	$('#signOutForm').show()
 	$('#changePasswordForm').hide()
 	$('#signUpForm').hide()
@@ -18,7 +19,7 @@ const inGameUi = () => {
 
 // what happens with a successful index request
 const onIndexSuccess = (res) => {
-	//set gamesPlayed to res.games
+	//set gamesPlayed to res.games.length to get the total games played
 	gamesPlayed = res.games.length
 	// set the in game view
 	$('#userAlert').text('You have played ' + gamesPlayed + ' games. click Start New Game.')
@@ -26,9 +27,9 @@ const onIndexSuccess = (res) => {
 	$('#startNewGame').show()
 	$('#signOutForm').show()
 	$('#changePasswordForm').hide()
+	$('#showChangePassword').show()
 	$('#signUpForm').hide()
 	$('#signInForm').hide()
-	$('#showSignUp').hide()
 }
 
 // what happens on successful create / POST request 
@@ -56,7 +57,7 @@ const player = turn ? 'X':'O'
 const onShowSuccess = res => {
 	//set the store to the updated game
 	store.game = res.game
-	console.log(store.game)
+	 (store.game)
 }
 
 // error message for any error in processing above requests

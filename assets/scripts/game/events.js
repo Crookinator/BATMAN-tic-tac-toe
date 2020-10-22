@@ -10,8 +10,9 @@ let gameState = {
 }
 // set current player
 let currentPlayer = 'X'
+
+// function to check for a winner
 const checkWin = function (arr) {
-	console.log('inside checkWin',  gameState)
     if (gameState.moves >= 5) {
 	for (let i = 0; i <= arr.length; i++) {
 		if (arr[0] === arr[1] && arr[1] === arr[2] && arr[0] !== '') {
@@ -58,6 +59,7 @@ const checkWin = function (arr) {
 	}
 	}
 }
+
 // box click event handler
 const onBoxClick = (event) => {
 // use event.target to select the specific box clicked
@@ -94,6 +96,7 @@ gameState.moves++
 .catch(gameUi.onError)
 return gameState		
 }
+
 // when play is clicked
 const onPlay = (event) => {
 	event.preventDefault()
@@ -101,6 +104,7 @@ const onPlay = (event) => {
 		.then(gameUi.onIndexSuccess)
 		.catch(gameUi.onError)
 }
+
 // when Start New Game is clicked
 const onStart = (event) => {
 	event.preventDefault()
@@ -114,10 +118,12 @@ const onStart = (event) => {
 		.then(gameUi.onCreateSuccess)
 		.catch(gameUi.onError)
 }
+
 // function to show change password 
 const showChangePassword = event => {
 	$('#changePasswordForm').show()
 	$('#gameBoard').hide()
+	$('#showChangePassword').hide()
 }
 
 module.exports = {
