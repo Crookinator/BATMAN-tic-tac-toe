@@ -26,6 +26,18 @@ $(() => {
 	$('#showSignIn').on('click', uiAuth.resetForms)
 	
 	//in game event listeners
+	$('#formHomeBtn').on('click', event=> {
+		event.preventDefault()
+		$('#userAlert').text('You are at the Home screen.')
+		$('#inGameUi').show()
+		$('#changePasswordForm').hide()
+	})
+	$('#uiHomeBtn').on('click', event => {
+		event.preventDefault()
+		$('#userAlert').text('You are on the Home screen.')
+		$('#gameBoard').hide()
+		$('#inGameUi').show()
+	})
 	$('#playGame').on('click', gameEvents.onPlay)
 	$('#startNewGame').on('click', gameEvents.onStart)
 	$('.box').on('click', gameEvents.onBoxClick)

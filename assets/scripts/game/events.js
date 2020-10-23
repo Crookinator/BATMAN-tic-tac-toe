@@ -121,10 +121,13 @@ const onStart = (event) => {
 
 // function to show change password 
 const showChangePassword = event => {
+	$('userAlert').text('Change Password')
 	$('#changePasswordForm').show()
 	$('#gameBoard').hide()
-	$('#showChangePassword').hide()
+	$('#inGameUi').hide()
 }
+
+
 
 module.exports = {
 	onBoxClick,

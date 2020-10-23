@@ -30,56 +30,69 @@
 			</p>
 					</div>
 		</header>
+		
 		<section>
 			<div class='container--custom global-spacing--large'>
 				<h3 aria-live='assertive' class='h3' id='userAlert'></h3>
 			</div>
 			<form class='container--custom global-spacing--large'  id="signUpForm" name="signUpForm">
 				<fieldset>
-					<legend>Sign up</legend> <label for="signUpEmail">Email</label> <input required="" id="signUpEmail" type="email" name="credentials[email]"> <label for="signUpPassword">Password</label> <input required="" id="signUpPassword" type="password" name="credentials[password]" placeholder="Password"> <label for="signUpPassword_confirmation">Password Confirmation</label> <input required="" id="signUpPassword_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"> <input class='uiButton' type="submit"value='Sign up'>
+					<legend>Sign up</legend> <label for="signUpEmail">Email</label> <input required="" id="signUpEmail" type="email" name="credentials[email]"> <label for="signUpPassword">Password</label> <input required="" id="signUpPassword" type="password" name="credentials[password]" placeholder="Password"> <label for="signUpPassword_confirmation">Password Confirmation</label> <input required="" id="signUpPassword_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"> <input class='uiButton' type="submit"value='Sign up'> <input type='button' class='uiButton' id='showSignIn' value='Sign in'>
 				</fieldset>
 			</form>
 		</section>
+		
 		<section>
 			<form class='container--custom global-spacing--large' id="signInForm" name="signInForm">
 				<fieldset>
-					<legend>Sign in</legend> <label for="signInEmail">Email</label> <input required="" id="signInEmail" type="email" name="credentials[email]" placeholder="Email"> <label for="signInPassword">Password</label> <input required="" id="signInPassword" type="password" name="credentials[password]" placeholder="Password"> <input class='uiButton' type="submit"value='Sign in'>
+					<legend>Sign in</legend> <label for="signInEmail">Email</label> <input required="" id="signInEmail" type="email" name="credentials[email]" placeholder="Email"> <label for="signInPassword">Password</label> <input required="" id="signInPassword" type="password" name="credentials[password]" placeholder="Password"> <input class='uiButton' type="submit"value='Sign in'> <input class='uiButton' type='button' id='showSignUp' value='Sign up'>
 				</fieldset>
 			</form>
 		</section>
 		<section>
 			<form class='container--custom global-spacing--large' id="changePasswordForm" name="changePasswordForm">
 				<fieldset>
-					<legend>Change Password</legend> <label for="oldPassword">Old Password:</label><input required="" id="oldPassword" type="password" name="passwords[old]" placeholder="Old Password">  <label for="newPassword">New Password:</label><input required="" id='newPassword' type="password" name="passwords[new]" placeholder="New Password"> <input class='uiButton' type="submit" value="Change Password">
+					<legend>Change Password</legend> <label for="oldPassword">Old Password:</label><input required="" id="oldPassword" type="password" name="passwords[old]" placeholder="Old Password">  <label for="newPassword">New Password:</label><input required="" id='newPassword' type="password" name="passwords[new]" placeholder="New Password"> <input class='uiButton' type="submit" value="Change Password"> <input type='button' class='uiButton' id='formHomeBtn' value='Home'>
 				</fieldset>
 			</form>
 		</section>
 
 		
 		<!-- Game Board Below -->
+		
+		<div class="container-fluid row">
+			
+			<form class='container--custom global-spacing--large col-lg-4' id='inGameUi'>
+				<input type='button' class='uiButton' id='uiHomeBtn' value='Home'>
+				<input type='button' class='uiButton' id='startNewGame' value='Start New Game'>
+				<input type='button' class='uiButton' id='playGame' value='Get All Games'>
+				<input type='button' class='uiButton' id='showChangePassword' 				value='Change Password'>
+				<input class='uiButton' id="signOutForm" type="submit" value='Sign out'>
+			</form>
+			
+			<section id='gameBoard' class="container col-lg-8">
+				<div aria-live='polite' aria-label='Game Board' class="row board h-100">
+					<button  data-cell-index="0" aria-label='top left square' class="col-4 box"></button>
+					<button data-cell-index="1" aria-label='top middle square' class="col-4 box"></button>
+					<button data-cell-index="2" aria-label='top right square' class="col-4 box"></button>
+					<button data-cell-index="3" aria-label='left middle square' class="col-4 box"></button>
+					<button data-cell-index="4" aria-label='center middle square' class="col-4 box"></button>
+					<button data-cell-index="5" aria-label='right middle square' class="col-4 box"></button>
+					<button data-cell-index="6" aria-label='left bottom square' class="col-4 box"></button>
+					<button data-cell-index="7" aria-label='bottom middle square' class="col-4 box"></button>
+					<button data-cell-index="8" aria-label='right bottom square' class="col-4 box"></button>
+				</div>
+			</section>
 
-		<section id='gameBoard' class="container">
-			<div aria-live='polite' aria-label='Game Board' class="row board h-100">
-				<button  data-cell-index="0" aria-label='top left square' class="col-4 box"></button>
-				<button data-cell-index="1" aria-label='top middle square' class="col-4 box"></button>
-				<button data-cell-index="2" aria-label='top right square' class="col-4 box"></button>
-				<button data-cell-index="3" aria-label='left middle square' class="col-4 box"></button>
-				<button data-cell-index="4" aria-label='center middle square' class="col-4 box"></button>
-				<button data-cell-index="5" aria-label='right middle square' class="col-4 box"></button>
-				<button data-cell-index="6" aria-label='left bottom square' class="col-4 box"></button>
-				<button data-cell-index="7" aria-label='bottom middle square' class="col-4 box"></button>
-				<button data-cell-index="8" aria-label='right bottom square' class="col-4 box"></button>
-			</div>
-		</section>
-		<form class='container--custom global-spacing--large'>
-			<input class='uiButton' type='button' id='showSignUp' value='Sign up'> <input type='button' class='uiButton' id='showSignIn' value='Sign in'> <input type='button' class='uiButton' id='playGame' value='Get All Games'>
-			<input type='button' class='uiButton' id='startNewGame' value='Start New Game'> <input type='button' class='uiButton' id='showChangePassword' value='Change Password'>	
-
-		</form>
-				<section>
+		</div>
+			
+			
+		
+		<!-- <section>
 			<form id="signOutForm" class='container--custom global-spacing--large'name="signOutForm">
 				<input class='uiButton' type="submit" value='Sign out'>
 			</form>
-		</section>
+		</section> -->
+		
 	</body>
 </html>
