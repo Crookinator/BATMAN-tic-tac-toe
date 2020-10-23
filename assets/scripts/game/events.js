@@ -1,4 +1,5 @@
-'use strict'
+'use strict' 
+
 const gameApi = require('./api')
 const gameUi = require('./ui')
 const store = require('../store')

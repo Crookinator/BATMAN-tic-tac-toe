@@ -1,4 +1,5 @@
-'Use Strict'
+'Use Strict' 
+
 // require store 
 const store = require('../store')
 let turn = true
