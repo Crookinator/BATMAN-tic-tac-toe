@@ -24,11 +24,7 @@ const onIndexSuccess = (res) => {
 const onCreateSuccess = res => {
 		store.game = res.game
 	turn = true
-<<<<<<< HEAD
-	$('#userAlert').text('New game started. Batman is always X, and X, goes first.')
-=======
 	$('#userAlert').text('New game started. Batman is X and X goes first. Joker is playing as O.')
->>>>>>> build
 	$('#gameBoard').show()
 		
 	
