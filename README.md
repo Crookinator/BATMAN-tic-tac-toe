@@ -1,8 +1,8 @@
 # Description of Game
 ## Log-in / sign-up view:
 
-	- browser loads with username and password fields
-	- submit button
+	* browser loads with username and password fields
+	* submit button
 	- sign up button below sign in button
 	- Form should be centered in page
 	- In the Header a heading with the name of the game and a quick blerb about the game.
