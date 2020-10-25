@@ -1,71 +1,60 @@
-Wire Frame aka Description of app!
+# Description of app
 
-Browser:
-Log-in / sign-up view:
-	>browser loads with username and password fields
-	>submit button
-	>sign up button below sign in button
-	> Form should be centered in page
-	>In upper left corner (in header) a heading with the name of the game and a quick blerb about the game.
+## Log-in / Sign-up:
+	- browser loads with username and password fields
+	- Submit button
+	- sign up button below sign in button
+	- Header with a heading with the name of the game and a quick description.
 
-Game view:
-	>centered 3x3 grid 
-	>button for start game
-	>Log out button should appear
-	>Header text should change to something like "let's play!"
+## Game view:
+	- 3x3 grid 
+	- button for start game
+	- Log out button should appear
+	- User alert field for game state changes.
 	
-Winner / Tie:
-	>if either 3 in a row or all 9 full
-	>Display winner / tie in header text
-	>button appears for start new game
-	>button appears for cancel
+## Winner / Tie:
+	- if either 3 in a row or all 9 full
+	- Display winner / tie in user alert field.
+	- button for start new game
+	- button for log out
 
-Mobile:
-Log-in / sign-up form:
-	>sign in form should be edge to edge
-	>sign in button below form fields
-	>sign up button below sign in button
-	>Same text in header but H1 will be centered at top with blurb centered below that
+# Game Board
+## Logic for the game
+ Game board is a3x3 grid. Each section is a clickable button. Each button has a unique data-cell-index for tracking the game logic. The board is wrapped in a section tag with a unique id attached so that I could pass click events to event handler functions. 
+I stored the game state in a gameState object that I refer to thoughout the code. I created a function for checking the winner with some if/else conditions. This function compares the boards current played spaces against 8 possible winning combinations as well as checks for a tie by having all spaces filled without a winner. I also included code in the click event for each button to switch it to a disabled state and add a class of clicked. This allowed me to target all the buttons at once when a user clicked the start new game button. 
 
-Start game view:
-	>Name of game
-	>button that says start game
+## Approach:
+I put the html together first in order to see that the front end display is working. I then started to setup uthe authentication through the api. Afterwords I included the game logic, board, and api calls to update the game information. 
 
-Game board:
-	>header changes to Lets play
-	>3x3 grid each box a different div with event listener
-	>button at the bottom to reset game
-	
-Game complete:
-	>when either 3 in a row or all squares filled 
-	>Display game over with either a winner or tie
-	>button appears for restart game
-	>button appears for cancel
+## User Stories:
+	- As a user, I would like to sign up
+	- As a user I'd like to sign back in
+	- As a user, I'd like to play tic-tac-toe against myself 
+	- As a user I'd like to have the game accessible via screen reader
+	- As a user, I'd like to keep track of number of games played
+	- As a user, I'd like to log out
+	- As a user, I'd like to be able to change my password
 
-Game Board:with the board, and the logic that will be required to determine when the game is over.
-Game board will be 3x3 grid. Each section will be clickable so I'll need them to each have unique IDs in order to pass click events. 
-I'll store options in a gameBoard object. I'll need to have some kind of if/else or loop or both to check for 3 in a row or all 9 places being filled. I'll also need buttons to reset the events to play again. I'll need to use Math.random() to randomize the computer choices for the game. 
+## Plan for modularity:
+I sectioned the html, css, and also modulated the JS files to their different functions i.e. event listeners in one file, event handlers in another, and so on. I also sectioned off different parts of the JS for different actions i.e. authentication will be in one directory and normal game functionality in another. 
 
-Approach:
-I plan to get the html together first in order to see that the front end display is working. then I intend on adding logic to existing IDs or elements in the html. Then event listeners will be added, and corresponding logic will be added to listeners and handlers as project builds out. 
+## Creativity:
+	- Themed the UI arround the 1990's Batman cartoon
+	- Included the theme for that cartoon as the in-game theme
+	- The theme auto-plays upon successful sign-in
+	- Winning moves have an auto-playing victory sound
+	- The background of the game board is the Bat Cave
+	- Colors are similar to the Batsuit from the cartoon
 
-User Stories:
-As a user, I would like to sign up
-As a user I'd like to sign back in
-As user, I'd like to play tic-tac-toe against myself 
-As a user I'd like to have the game accessible
-	>As a user, I'd like to keep track of number of games played
-As a user, I'd like to log out
-	>As a user, I'd like to be able to change password
+## Version Control:
+Every time I completed a section, no matter how small, I performed a  git add and git commit. Once I had a successful event listener I also would do another commit.
 
-Plan for modularity:
-I plan to section the html, css, and also modulate the JS files to their different functions i.e. event listeners in one file, event handlers in another, and so on. I will also section off different parts of the JS for different actions i.e. authentication will be in one directory and normal game functionality in another. 
+# Additional features
+	- Fully screen reader accessible
 
-Creativity:
-Instead of X and O I'd like to have two different pictures one of a hero and one of a villain.
-
-Version Control:
-Every time I have completed a section, no matter how small, I will git add and git commit. Once my html is set up for example I'll git add and commit that change. If I have a successful event listener I'll do another, and so on. 
-
-Additional features (time permitted)
-Would love to make the app fully accessible to ensure anyone can play. Would like to add a button that will read out the current landscape of the game board. i.e. on button click screen reader will say A1, A2, B3, are filled with Xs. C1, C2, are filled with Os. would like to have some kind of theme chooser i.e. dark theme, light theme, or colorful theme.
+# Languages & Tools Used
+			- HTML
+	- CSS with Bootstrap
+	- JS
+	- Textmate (editor)
+	- API from Heroku 
